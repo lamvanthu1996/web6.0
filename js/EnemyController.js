@@ -1,8 +1,10 @@
 class EnemyController{
   constructor(x, y, spriteName, configs){
-    this.sprite=Nakama.game.add.sprite(x, y, 'assets', spriteName );
+    this.sprite = Nakama.enemyGroup.create(x, y, 'assets', spriteName);
+    //this.sprite=Nakama.game.add.sprite(x, y, 'assets', spriteName );
     this.configs=configs;
-    Nakama.game.physics.arcade.enable(this.sprite);
+    //Nakama.game.physics.arcade.enable(this.sprite);
+    this.sprite.health = this.configs.health;
     this.sprite.body.collideWorldBounds = true;
     this.sprite.body.velocity.x = EnemyController.ENEMY_SPEED;
   }
